@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.webProtal.org.dao.DonationMapper" >
+  <resultMap id="BaseResultMap" type="com.webProtal.org.model.Donation" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="e-mail" property="eMail" jdbcType="VARCHAR" />
+    <result column="donationType" property="donationtype" jdbcType="VARCHAR" />
+    <result column="loction" property="loction" jdbcType="VARCHAR" />
+    <result column="DonationAmount" property="donationamount" jdbcType="INTEGER" />
+    <result column="intention" property="intention" jdbcType="VARCHAR" />
+    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
+    <result column="isAnnoymous" property="isannoymous" jdbcType="INTEGER" />
+    <result column="invoice" property="invoice" jdbcType="INTEGER" />
+    <result column="pre1" property="pre1" jdbcType="VARCHAR" />
+    <result column="pre2" property="pre2" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.webProtal.org.model.Donation" extends="BaseResultMap" >
+    <result column="message" property="message" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, e-mail, donationType, loction, DonationAmount, intention, telphone, isAnnoymous, 
+    invoice, pre1, pre2
+  </sql>
+  <sql id="Blob_Column_List" >
+    message
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from donation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from donation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.webProtal.org.model.Donation" >
+    insert into donation (id, name, e-mail, 
+      donationType, loction, DonationAmount, 
+      intention, telphone, isAnnoymous, 
+      invoice, pre1, pre2, 
+      message)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{eMail,jdbcType=VARCHAR}, 
+      #{donationtype,jdbcType=VARCHAR}, #{loction,jdbcType=VARCHAR}, #{donationamount,jdbcType=INTEGER}, 
+      #{intention,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{isannoymous,jdbcType=INTEGER}, 
+      #{invoice,jdbcType=INTEGER}, #{pre1,jdbcType=VARCHAR}, #{pre2,jdbcType=VARCHAR}, 
+      #{message,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.webProtal.org.model.Donation" >
+    insert into donation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="eMail != null" >
+        e-mail,
+      </if>
+      <if test="donationtype != null" >
+        donationType,
+      </if>
+      <if test="loction != null" >
+        loction,
+      </if>
+      <if test="donationamount != null" >
+        DonationAmount,
+      </if>
+      <if test="intention != null" >
+        intention,
+      </if>
+      <if test="telphone != null" >
+        telphone,
+      </if>
+      <if test="isannoymous != null" >
+        isAnnoymous,
+      </if>
+      <if test="invoice != null" >
+        invoice,
+      </if>
+      <if test="pre1 != null" >
+        pre1,
+      </if>
+      <if test="pre2 != null" >
+        pre2,
+      </if>
+      <if test="message != null" >
+        message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="eMail != null" >
+        #{eMail,jdbcType=VARCHAR},
+      </if>
+      <if test="donationtype != null" >
+        #{donationtype,jdbcType=VARCHAR},
+      </if>
+      <if test="loction != null" >
+        #{loction,jdbcType=VARCHAR},
+      </if>
+      <if test="donationamount != null" >
+        #{donationamount,jdbcType=INTEGER},
+      </if>
+      <if test="intention != null" >
+        #{intention,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="isannoymous != null" >
+        #{isannoymous,jdbcType=INTEGER},
+      </if>
+      <if test="invoice != null" >
+        #{invoice,jdbcType=INTEGER},
+      </if>
+      <if test="pre1 != null" >
+        #{pre1,jdbcType=VARCHAR},
+      </if>
+      <if test="pre2 != null" >
+        #{pre2,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.webProtal.org.model.Donation" >
+    update donation
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="eMail != null" >
+        e-mail = #{eMail,jdbcType=VARCHAR},
+      </if>
+      <if test="donationtype != null" >
+        donationType = #{donationtype,jdbcType=VARCHAR},
+      </if>
+      <if test="loction != null" >
+        loction = #{loction,jdbcType=VARCHAR},
+      </if>
+      <if test="donationamount != null" >
+        DonationAmount = #{donationamount,jdbcType=INTEGER},
+      </if>
+      <if test="intention != null" >
+        intention = #{intention,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="isannoymous != null" >
+        isAnnoymous = #{isannoymous,jdbcType=INTEGER},
+      </if>
+      <if test="invoice != null" >
+        invoice = #{invoice,jdbcType=INTEGER},
+      </if>
+      <if test="pre1 != null" >
+        pre1 = #{pre1,jdbcType=VARCHAR},
+      </if>
+      <if test="pre2 != null" >
+        pre2 = #{pre2,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        message = #{message,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.webProtal.org.model.Donation" >
+    update donation
+    set name = #{name,jdbcType=VARCHAR},
+      e-mail = #{eMail,jdbcType=VARCHAR},
+      donationType = #{donationtype,jdbcType=VARCHAR},
+      loction = #{loction,jdbcType=VARCHAR},
+      DonationAmount = #{donationamount,jdbcType=INTEGER},
+      intention = #{intention,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR},
+      isAnnoymous = #{isannoymous,jdbcType=INTEGER},
+      invoice = #{invoice,jdbcType=INTEGER},
+      pre1 = #{pre1,jdbcType=VARCHAR},
+      pre2 = #{pre2,jdbcType=VARCHAR},
+      message = #{message,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.webProtal.org.model.Donation" >
+    update donation
+    set name = #{name,jdbcType=VARCHAR},
+      e-mail = #{eMail,jdbcType=VARCHAR},
+      donationType = #{donationtype,jdbcType=VARCHAR},
+      loction = #{loction,jdbcType=VARCHAR},
+      DonationAmount = #{donationamount,jdbcType=INTEGER},
+      intention = #{intention,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR},
+      isAnnoymous = #{isannoymous,jdbcType=INTEGER},
+      invoice = #{invoice,jdbcType=INTEGER},
+      pre1 = #{pre1,jdbcType=VARCHAR},
+      pre2 = #{pre2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
