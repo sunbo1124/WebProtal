@@ -1,5 +1,5 @@
 html,body{
-	background: #fff
+	background: #eee;
 }
 
 hr{
@@ -180,6 +180,12 @@ li.active {
 
 .row .dynamic{
 	background: white;
+	box-shadow: none;
+	transition:all 0.5s;
+}
+.row .dynamic:hover{
+	transition:all 0.5s;
+	box-shadow: 0 0 20px 1px #B3B3B3
 }
 .dynamic h3{
 	color: #F37170;

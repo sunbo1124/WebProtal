@@ -3,7 +3,9 @@ package com.webProtal.org.model;
 public class Columns {
     private Integer id;
 
-    private String cname;
+    private String cName;
+    
+    private String disName;
 
     private String pre1;
 
@@ -17,15 +19,37 @@ public class Columns {
         this.id = id;
     }
 
-    public String getCname() {
-        return cname;
-    }
+    
 
-    public void setCname(String cname) {
-        this.cname = cname == null ? null : cname.trim();
-    }
+    /**
+	 * @return the cName
+	 */
+	public String getcName() {
+		return cName;
+	}
 
-    public String getPre1() {
+	/**
+	 * @param cName the cName to set
+	 */
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	/**
+	 * @return the disName
+	 */
+	public String getDisName() {
+		return disName;
+	}
+
+	/**
+	 * @param disName the disName to set
+	 */
+	public void setDisName(String disName) {
+		this.disName = disName;
+	}
+
+	public String getPre1() {
         return pre1;
     }
 

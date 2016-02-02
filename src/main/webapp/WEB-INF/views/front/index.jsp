@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@
 </head>
 <body class='home-template'>
 <!-- 头部 -->
-<header class="main-header" style="background-image: url(http://image.golaravel.com/5/c9/44e1c4e50d55159c65da6a41bc07e.jpg)">
+<header class="main-header" style="background-image:image/header_bg.jpg">
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
@@ -50,30 +50,12 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 		<ul class="nav navbar-nav">
-			<li class="active">
-				<a href="#">网站首页<span class="sr-only">(current)</span></a>
-			</li>
-			<li>
-				<a href="#">关于我们</a>
-			</li>
-			<li >
-				<a href="#">红会动态</a>
-			</li>
-			<li>
-				<a href="#">政策法规</a>
-			</li>
-			<li>
-				<a href="#">红会事业</a>
-			</li>
-			<li>
-				<a href="#">网上求助</a>
-			</li>
-			<li>
-			<a href="#">基层红会信息</a>
-			</li>
-			<li class="visible-lg">
-				<a href="#">爱心榜</a>
-			</li>
+		${colums}
+			<c:forEach  var="column" items="${columns}" begin="0"  varStatus="status">
+				<li <c:if test="${status.count  == 1}">class="active"</c:if> >
+					<a href="#">${column.cName }</a>
+				</li>
+			</c:forEach>
 		</ul>
 		<ul class="nav navbar-nav navbar-right visible-lg" role="navigation">
 			<form class="navbar-form navbar-left" role="search">
@@ -161,8 +143,8 @@
 		</div>
 	</div>
 </section>
-
 <!-- slider&dynamic end -->
+
 <script type="text/javascript">
 		$(document).ready(function() {
 			$("#content-slider").lightSlider({

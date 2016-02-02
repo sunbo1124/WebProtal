@@ -3,12 +3,13 @@
 <mapper namespace="com.webProtal.org.dao.ColumnsMapper" >
   <resultMap id="BaseResultMap" type="com.webProtal.org.model.Columns" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="cName" property="cName" jdbcType="VARCHAR" />
+    <result column="disName" property="disName" jdbcType="VARCHAR" />
     <result column="pre1" property="pre1" jdbcType="VARCHAR" />
     <result column="pre2" property="pre2" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, cname, pre1, pre2
+    id, cName,disName,pre1, pre2
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -16,14 +17,20 @@
     from columns
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+  		select 
+  			<include refid="Base_Column_List" />
+  		from columns
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from columns
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.webProtal.org.model.Columns" >
-    insert into columns (id, cname, pre1, 
+    insert into columns (id, cName,disName, pre1, 
       pre2)
-    values (#{id,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{pre1,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{cName,jdbcType=VARCHAR},#{disName,jdbcType=VARCHAR}, #{pre1,jdbcType=VARCHAR}, 
       #{pre2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.webProtal.org.model.Columns" >
@@ -32,8 +39,11 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="cname != null" >
-        cname,
+      <if test="cName != null" >
+        cName,
+      </if>
+      <if test="disName != null" >
+        disName,
       </if>
       <if test="pre1 != null" >
         pre1,
@@ -46,8 +56,11 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="cname != null" >
-        #{cname,jdbcType=VARCHAR},
+      <if test="cName != null" >
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="disName != null" >
+        #{disName,jdbcType=VARCHAR},
       </if>
       <if test="pre1 != null" >
         #{pre1,jdbcType=VARCHAR},
@@ -60,8 +73,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.webProtal.org.model.Columns" >
     update columns
     <set >
-      <if test="cname != null" >
-        cname = #{cname,jdbcType=VARCHAR},
+      <if test="cName != null" >
+        cName = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="disName != null" >
+        disName = #{disName,jdbcType=VARCHAR},
       </if>
       <if test="pre1 != null" >
         pre1 = #{pre1,jdbcType=VARCHAR},
@@ -74,7 +90,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.webProtal.org.model.Columns" >
     update columns
-    set cname = #{cname,jdbcType=VARCHAR},
+    set cName = #{cName,jdbcType=VARCHAR},
+    	  disName = #{disName,jdbcType=VARCHAR},
       pre1 = #{pre1,jdbcType=VARCHAR},
       pre2 = #{pre2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
