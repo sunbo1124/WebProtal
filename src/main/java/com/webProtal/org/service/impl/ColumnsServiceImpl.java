@@ -12,32 +12,27 @@ import com.webProtal.org.service.ColumnService;
 @Service("columnsService")
 public class ColumnsServiceImpl implements ColumnService {
 
-	
-	@Autowired
-	ColumnsMapper columnsMapper;
-	
-	@Override
-	public List<Columns> getColumns() {
-		// TODO Auto-generated method stub
-		return columnsMapper.queryAll();
-	}
+    @Autowired
+    private ColumnsMapper columnsMapper;
 
-	@Override
-	public Columns queryById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public List<Columns> getColumns() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public int updateColumns(Columns c) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    public Columns queryById(int id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public int delColumnsById(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    public int updateColumns(Columns c) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public int delColumnsById(int id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
 }

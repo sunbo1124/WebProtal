@@ -11,21 +11,19 @@ import com.webProtal.org.service.UserService;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-	@Autowired
-	UserMapper userMapper;
-	@Override
-	public User getUserInfoById(int id) {
-		return userMapper.selectByPrimaryKey(id);
-	}
+    @Autowired
+    UserMapper userMapper;
 
-	@Override
-	public List<User> getUsers() {
-		return null;
-	}
+    public User getUserInfoById(int id) {
+        return userMapper.selectByPrimaryKey(id);
+    }
 
-	@Override
-	public int insertUser(User user) {
-		return userMapper.insert(user);
-	}
+    public List<User> getUsers() {
+        return null;
+    }
+
+    public int insertUser(User user) {
+        return userMapper.insert(user);
+    }
 
 }

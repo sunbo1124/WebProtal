@@ -15,19 +15,23 @@ import com.webProtal.org.service.ColumnService;
 
 @Controller
 public class IndexController {
-	@Autowired
-	ColumnService columnService;
-	private static final Logger LOGGER = Logger.getLogger(IndexController.class);
-	/**
-	 * 首页
-	 * @param model
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Model model){
-		model.addAttribute("name", "测试");
-		List<Columns> colums =columnService.getColumns();
-		LOGGER.info(JSON.toJSON(colums));
-		model.addAttribute("columns",colums);
-		return "/front/index";
-	}
+
+    private static final Logger LOGGER = Logger.getLogger(IndexController.class);
+
+    @Autowired
+    ColumnService               columnService;
+
+    /**
+     * 首页
+     * 
+     * @param model
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(Model model) {
+        model.addAttribute("name", "测试");
+        List<Columns> colums = columnService.getColumns();
+        LOGGER.info(JSON.toJSON(colums));
+        model.addAttribute("columns", colums);
+        return "/front/index";
+    }
 }

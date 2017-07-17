@@ -16,154 +16,41 @@
 </head>
 <body class='home-template'>
 <!-- 头部 -->
-<header class="main-header" style="background-image:image/header_bg.jpg">
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12">
-			<h1>绵阳市红十字会 <small class="col-xs-12" style="color:yellow;">人道•博爱•奉献</small></h1>
-			<h3 style="">RedCross Of Mianyang City</h3>
-		</div>
-		<div class="col-sm-12 hidden-xs">
-			<a href="http://www.golaravel.com/laravel/docs/5.1/" class="btn btn-default btn-doc" target="_blank">5.1 中文文档</a>
-			<a href="http://www.golaravel.com/laravel/docs/5.1/" class="btn btn-default btn-doc" target="_blank">5.1 中文文档</a>
-			<a href="http://www.golaravel.com/laravel/docs/5.1/" class="btn btn-default btn-doc" target="_blank">5.1 中文文档</a>
-			<a href="http://www.golaravel.com/laravel/docs/5.1/" class="btn btn-default btn-doc" target="_blank">5.1 中文文档</a>
-			<a href="http://www.golaravel.com/laravel/docs/5.1/" class="btn btn-default btn-doc" target="_blank">5.1 中文文档</a>
-			<a href="http://www.golaravel.com/laravel/docs/5.1/" class="btn btn-default btn-doc" target="_blank">5.1 中文文档</a>
-		</div>
-	</div>
-</div>
-</header>
-<!-- 头部结束 -->
-<!--导航栏-->
-<nav class="navbar navbar-default">
-<div class="container">
-	<!-- Brand and toggle get grouped for better mobile display -->
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		</button>
-	</div>
-	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-		<ul class="nav navbar-nav">
-		${colums}
-			<c:forEach  var="column" items="${columns}" begin="0"  varStatus="status">
-				<li <c:if test="${status.count  == 1}">class="active"</c:if> >
-					<a href="#">${column.cName }</a>
-				</li>
-			</c:forEach>
-		</ul>
-		<ul class="nav navbar-nav navbar-right visible-lg" role="navigation">
-			<form class="navbar-form navbar-left" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search">
-				</div>
-				<button type="submit" class="btn btn-default">
-                                站内搜索
-				</button>
-			</form>
-		</ul>
-	</div>
-	<!-- /.navbar-collapse -->
-</div>
-<!-- /.container-fluid -->
-</nav>
-<!-- 导航栏结束 -->
-<!-- slider&dynamic -->
-<section class='content'>
+<div class="main-header" >
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-5">
-				<!-- slider -->
-				<div class="demo">
-			<div class="item">
-				<div class="clearfix" style="max-width:474px;">
-					<ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-						<li data-thumb="img/thumb/cS-1.jpg">
-						<img class="img-responsive" src="img/cS-1.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-2.jpg">
-						<img class="img-responsive" src="img/cS-2.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-3.jpg">
-						<img class="img-responsive" src="img/cS-3.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-4.jpg">
-						<img class="img-responsive" src="img/cS-4.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-5.jpg">
-						<img class="img-responsive" src="img/cS-5.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-6.jpg">
-						<img class="img-responsive" src="img/cS-6.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-7.jpg">
-						<img class="img-responsive" src="img/cS-7.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-8.jpg">
-						<img class="img-responsive" src="img/cS-8.jpg"/>
-						</li>
-						<li data-thumb="img/thumb/cS-9.jpg">
-						<img class="img-responsive" src="img/cS-9.jpg"/>
-						</li>
-					</ul>
-				</div>
-			</div>
-				</div>
-			</div>
-			<div class="col-sm-7 dynamic">
-				<div class="row">
-					<div class="col-sm-6 col-xs-6 title">
-						<h3>红会动态</h3>
-					</div>
-					<div class="col-sm-6 col-xs-6 more">
-						<a href="">more</a>
-					</div>
-				</div>
-					<hr>
-				<dl >
-  					<dt>我是垃圾</dt>
-  					<dd>红十字会红十字会红十字会红十字会红十字会...<span><a href="">查看详情>></a></span></dd>
-					<dt>我是垃圾</dt>
-  					<dd>红十字会红十字会红十字会红十字会红十字会...<span><a href="">查看详情>></a></span></dd>
-					<dt>我是垃圾</dt>
-  					<dd>红十字会红十字会红十字会红十字会...<span><a href="">查看详情>></a></span></dd>
-					<dt>我是垃圾</dt>
-  					<dd>红十字会红十字会红十字会红十字会红十字会...<span><a href="">查看详情>></a></span></dd>
-  					<dt>我是垃圾</dt>
-  					<dd>红十字会红十字会红十字会...<span><a href="">查看详情>></a></span></dd>
-  					<dt>我是垃圾</dt>
-  					<dd>红十字会红十字会红十字会...<span><a href="">查看详情>></a></span></dd>
-				</dl>
+			<div class="col-sm-12">
+				<h1>XXX医院 <small class="col-xs-12" style="color:yellow;">人道•博爱•奉献</small></h1>
+				<h3 style="">RedCross Of Mianyang City</h3>
 			</div>
 		</div>
 	</div>
-</section>
-<!-- slider&dynamic end -->
+</div>
 
-<script type="text/javascript">
-		$(document).ready(function() {
-			$("#content-slider").lightSlider({
-                loop:true,
-                keyPress:true
-            });
-            $('#image-gallery').lightSlider({
-                gallery:true,
-                item:1,
-                thumbItem:9,
-                slideMargin: 0,
-                speed:500,
-                auto:true,
-                loop:true,
-                onSliderLoad: function() {
-                    $('#image-gallery').removeClass('cS-hidden');
-                }  
-            });
-		});
-</script>
+<div class="bann-srrip">
+       <div class="banner-bottom">
+				<div class="col-md-3 banner-grids ban-gd1">
+					<img src="image/h2-icon.png" alt="" class="img-responsive">
+					<h3>Libero tempore</h3>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+				</div>
+				<div class="col-md-3 banner-grids ban-gd2">
+					<img src="image/sy.png" alt="" class="img-responsive">
+					<h3>Solut nobi est</h3>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+				</div>
+				<div class="col-md-3 banner-grids ban-gd3">
+					<img src="image/h3-icon.png" alt="" class="img-responsive">
+					<h3>Equal  belongs</h3>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+				</div>
+				<div class="col-md-3 banner-grids ban-gd4">
+					<img src="image/h2-icon.png" alt="" class="img-responsive">
+					<h3>Annoyances eos</h3>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+				</div>
+			  <div class="clearfix"> </div>
+		</div>
+</div>
 </body>
 </html>

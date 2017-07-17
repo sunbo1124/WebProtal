@@ -13,24 +13,24 @@ import com.webProtal.org.service.UserService;
 
 /***
  * 用户登陆REST服务
+ * 
  * @author guotingchao
  *
  */
 @Controller
 @RequestMapping("/user")
 public class RestForUserLogin {
-	@Autowired
-	private UserService userService;
-	
-	
-	@RequestMapping("/getUser/{userId}")
-	public @ResponseBody User getUser(@PathVariable int userId){
-		return userService.getUserInfoById(userId);
-	}
-	
-	@RequestMapping(value = "/checkLogin",method = RequestMethod.GET)
-	public @ResponseBody User checkLogin(@RequestBody User user){
-		return user;
-	}
-	 
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping("/getUser/{userId}")
+    public @ResponseBody User getUser(@PathVariable int userId) {
+        return userService.getUserInfoById(userId);
+    }
+
+    @RequestMapping(value = "/checkLogin", method = RequestMethod.GET)
+    public @ResponseBody User checkLogin(@RequestBody User user) {
+        return user;
+    }
+
 }
